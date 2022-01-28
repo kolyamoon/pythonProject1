@@ -1,9 +1,17 @@
-per_cent = {'ТКБ': 5.6, 'СКБ': 5.9, 'ВТБ': 4.28, 'СБЕР': 4.0}
-money = float(input("Введите сумму вклада: "))
-deposit = []
-for i in list(per_cent.values()):
-    deposit.append(float(money * i / 100))
+price = []
+tickets = int(input('Введите колличество билетов:'))
 
-deposit = [round(v, 2) for v in deposit]
-print(deposit)
-print(max(deposit))
+for i in range(1, tickets + 1):
+    age = int(input(f'Введите возраст {i} покупателя:'))
+    if age < 18:
+        price.append(0)
+    elif 18 <= age <= 25:
+        price.append(990)
+    else:
+        price.append(1390)
+if tickets > 3:
+    a = sum(price) - sum(price) * 0.1
+    print('Скидка покупки с учетом скидки равна:', a)
+else:
+    a = sum(price)
+    print('Сумма вашей покупки равна:', a)
